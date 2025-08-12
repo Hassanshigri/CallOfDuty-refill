@@ -21,6 +21,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet"
     />
@@ -76,7 +80,7 @@
               <a class="nav-link px-3" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 " href="../shop/">Shop</a>
+              <a class="nav-link px-3" href="../shop/">Shop</a>
             </li>
             <li class="nav-item">
               <a class="nav-link px-3" href="../blog/">Blog</a>
@@ -119,10 +123,10 @@
       </nav>
 
       <section class="text-center mb-5">
-        <h1 class="display-4 text-white fw-bold mb-3">
-          Operator Access
-        </h1>
-        <p class="text-muted lead">Log in to access your Call of Duty Refill account.</p>
+        <h1 class="display-4 text-white fw-bold mb-3">Operator Access</h1>
+        <p class="text-muted lead">
+          Log in to access your Call of Duty Refill account.
+        </p>
       </section>
 
       <section class="row justify-content-center">
@@ -132,7 +136,9 @@
               <h2 class="text-white fw-bold mb-4">Login</h2>
               <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="mb-3">
-                  <label for="loginEmail" class="form-label text-muted">Email address</label>
+                  <label for="loginEmail" class="form-label text-muted"
+                    >Email address</label
+                  >
                   <input
                     type="email"
                     class="form-control bg-dark text-white border-cod"
@@ -142,7 +148,9 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="loginPassword" class="form-label text-muted">Password</label>
+                  <label for="loginPassword" class="form-label text-muted"
+                    >Password</label
+                  >
                   <input
                     type="password"
                     class="form-control bg-dark text-white border-cod"
@@ -154,7 +162,8 @@
                 <button type="submit" class="btn btn-cod w-100">Access</button>
               </form>
               <p class="text-muted mt-3 text-center">
-                New Recruit? <a href="../register/" class="text-cod">Enroll Here</a>
+                New Recruit?
+                <a href="../register/" class="text-cod">Enroll Here</a>
               </p>
             </div>
           </div>
@@ -166,10 +175,18 @@
     <div id="authModal" class="modal">
       <div class="modal-content card bg-dark-card border-cod">
         <div class="card-body p-4">
-          <h2 id="authTitle" class="text-white fw-bold mb-4">Operator Access</h2>
-          <form id="loginForm" style="display: block;" onsubmit="handleLogin(event)">
+          <h2 id="authTitle" class="text-white fw-bold mb-4">
+            Operator Access
+          </h2>
+          <form
+            id="loginForm"
+            style="display: block"
+            onsubmit="handleLogin(event)"
+          >
             <div class="mb-3">
-              <label for="loginEmail" class="form-label text-muted">Email address</label>
+              <label for="loginEmail" class="form-label text-muted"
+                >Email address</label
+              >
               <input
                 type="email"
                 class="form-control bg-dark text-white border-cod"
@@ -179,7 +196,9 @@
               />
             </div>
             <div class="mb-3">
-              <label for="loginPassword" class="form-label text-muted">Password</label>
+              <label for="loginPassword" class="form-label text-muted"
+                >Password</label
+              >
               <input
                 type="password"
                 class="form-control bg-dark text-white border-cod"
@@ -190,9 +209,15 @@
             </div>
             <button type="submit" class="btn btn-cod w-100 mb-3">Access</button>
           </form>
-          <form id="signupForm" style="display: none;" onsubmit="handleSignup(event)">
+          <form
+            id="signupForm"
+            style="display: none"
+            onsubmit="handleSignup(event)"
+          >
             <div class="mb-3">
-              <label for="signupUsername" class="form-label text-muted">Username</label>
+              <label for="signupUsername" class="form-label text-muted"
+                >Username</label
+              >
               <input
                 type="text"
                 class="form-control bg-dark text-white border-cod"
@@ -202,7 +227,9 @@
               />
             </div>
             <div class="mb-3">
-              <label for="signupEmail" class="form-label text-muted">Email address</label>
+              <label for="signupEmail" class="form-label text-muted"
+                >Email address</label
+              >
               <input
                 type="email"
                 class="form-control bg-dark text-white border-cod"
@@ -212,7 +239,9 @@
               />
             </div>
             <div class="mb-3">
-              <label for="signupPassword" class="form-label text-muted">Password</label>
+              <label for="signupPassword" class="form-label text-muted"
+                >Password</label
+              >
               <input
                 type="password"
                 class="form-control bg-dark text-white border-cod"
@@ -224,9 +253,14 @@
             <button type="submit" class="btn btn-cod w-100 mb-3">Enroll</button>
           </form>
           <p class="text-muted text-center">
-            <a href="#" id="switchAuth" class="text-cod">New Recruit? Enroll Here.</a>
+            <a href="#" id="switchAuth" class="text-cod"
+              >New Recruit? Enroll Here.</a
+            >
           </p>
-          <button class="btn-close btn-close-white" onclick="hideAuthModal()"></button>
+          <button
+            class="btn-close btn-close-white"
+            onclick="hideAuthModal()"
+          ></button>
         </div>
       </div>
     </div>
@@ -238,8 +272,9 @@
           <div class="col-md-3">
             <h6 class="text-white fw-bold mb-3">Call of Duty Refill</h6>
             <p class="text-muted small">
-              Your ultimate source for *Call of Duty* COD Points, skins, and exclusive gaming gear. 
-              Dominate the battlefield with our premium collection.
+              Your ultimate source for *Call of Duty* COD Points, skins, and
+              exclusive gaming gear. Dominate the battlefield with our premium
+              collection.
             </p>
             <div class="d-flex gap-3">
               <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
@@ -252,13 +287,19 @@
             <h6 class="text-white fw-bold mb-3">Quick Links</h6>
             <ul class="list-unstyled">
               <li>
-                <a href="../shop/" class="text-muted text-decoration-none">Shop</a>
+                <a href="../shop/" class="text-muted text-decoration-none"
+                  >Shop</a
+                >
               </li>
               <li>
-                <a href="../blog/" class="text-muted text-decoration-none">Blog</a>
+                <a href="../blog/" class="text-muted text-decoration-none"
+                  >Blog</a
+                >
               </li>
               <li>
-                <a href="../contact/" class="text-muted text-decoration-none">Contact</a>
+                <a href="../contact/" class="text-muted text-decoration-none"
+                  >Contact</a
+                >
               </li>
             </ul>
           </div>
@@ -266,13 +307,19 @@
             <h6 class="text-white fw-bold mb-3">Legal</h6>
             <ul class="list-unstyled">
               <li>
-                <a href="../privacy/" class="text-muted text-decoration-none">Privacy Policy</a>
+                <a href="../privacy/" class="text-muted text-decoration-none"
+                  >Privacy Policy</a
+                >
               </li>
               <li>
-                <a href="../terms/" class="text-muted text-decoration-none">Terms of Service</a>
+                <a href="../terms/" class="text-muted text-decoration-none"
+                  >Terms of Service</a
+                >
               </li>
               <li>
-                <a href="../cookies/" class="text-muted text-decoration-none">Cookies Policy</a>
+                <a href="../cookies/" class="text-muted text-decoration-none"
+                  >Cookies Policy</a
+                >
               </li>
             </ul>
           </div>
@@ -281,7 +328,9 @@
             <div class="d-flex align-items-center text-muted mb-2">
               <i class="bi bi-envelope me-2"></i>
               <small>
-                <a href="mailto:info@callofdutyrefill.com" class="text-muted text-decoration-none"
+                <a
+                  href="mailto:info@callofdutyrefill.com"
+                  class="text-muted text-decoration-none"
                   >info@callofdutyrefill.com</a
                 >
               </small>
