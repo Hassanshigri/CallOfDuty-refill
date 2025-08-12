@@ -3,175 +3,140 @@ document.addEventListener('DOMContentLoaded', function() {
     checkLoginStatus();
     createBackgroundAnims();
     checkCookiesConsent();
+    startCountdown();
 });
 
-// --- Cookies Management ---
-function checkCookiesConsent() {
-    const cookiesConsent = getCookieValue('cod_cookies_consent');
-    if (!cookiesConsent) {
-        setTimeout(() => {
-            document.getElementById('cookiesPopup').classList.add('show');
-        }, 1000); // Delay popup by 1 second
-    }
+// Countdown function
+function startCountdown() {
+    const launchDate = new Date('September 1, 2025 00:00:00').getTime();
+    const countdownElement = document.getElementById('countdown');
+    if (!countdownElement) return;
+
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            countdownElement.innerHTML = 'Operational!';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+    }, 1000);
 }
 
-function acceptCookies() {
-    setCookie('cod_cookies_consent', 'accepted', 365);
-    setCookie('cod_cookies_functional', 'true', 365);
-    setCookie('cod_cookies_analytics', 'true', 365);
-    setCookie('cod_cookies_marketing', 'true', 365);
-    hideCookiesPopup();
-    showNotification('Cookie preferences saved. All tactical systems enabled!');
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const cookiePopup = document.getElementById('cookie-popup');
+  
+  // Check if user has already made a cookie choice
+  if (localStorage.getItem('cookieConsent')) {
+    cookiePopup.style.display = 'none';
+    return;
+  }
 
-function declineCookies() {
-    setCookie('cod_cookies_consent', 'declined', 365);
-    setCookie('cod_cookies_functional', 'false', 365);
-    setCookie('cod_cookies_analytics', 'false', 365);
-    setCookie('cod_cookies_marketing', 'false', 365);
-    hideCookiesPopup();
-    showNotification('Cookie preferences saved. Operating in minimal mode.', 'info');
-}
+  // Show popup by default
+  cookiePopup.style.display = 'block';
 
-function customizeCookies() {
-    // In a real implementation, this would open a detailed cookie preferences modal
-    showNotification('Cookie customization panel coming soon! For now, use Accept All or Decline.', 'info');
-}
+  // Accept cookies
+  window.acceptCookies = function () {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookiePopup.style.display = 'none';
+  };
 
-function hideCookiesPopup() {
-    document.getElementById('cookiesPopup').classList.remove('show');
-}
+  // Decline cookies
+  window.declineCookies = function () {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookiePopup.style.display = 'none';
+  };
+});
 
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
-}
-
-function getCookieValue(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
-// --- Enhanced Background Animation Creation ---
 function createBackgroundAnims() {
     const container = document.querySelector('.background-effects');
     if (!container) return;
 
-    // Create particles (existing)
-    const particleCount = 50;
+    const particleCount = 80; // Increased for more advanced effect
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-
-        const size = Math.random() * 3 + 1;
+        const size = Math.random() * 4 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-
         particle.style.left = `${Math.random() * 100}%`;
-        particle.style.animationDelay = `${Math.random() * 15}s`;
-        particle.style.animationDuration = `${10 + Math.random() * 10}s`;
-
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+        particle.style.animationDuration = `${8 + Math.random() * 12}s`;
         container.appendChild(particle);
     }
 
-    // Create fire spots
-    const fireSpotCount = 15;
+    const fireSpotCount = 25;
     for (let i = 0; i < fireSpotCount; i++) {
         const fireSpot = document.createElement('div');
         fireSpot.className = 'fire-spot';
-
         fireSpot.style.left = `${Math.random() * 100}%`;
         fireSpot.style.top = `${Math.random() * 100}%`;
-        fireSpot.style.animationDelay = `${Math.random() * 3}s`;
-        fireSpot.style.animationDuration = `${2 + Math.random() * 2}s`;
-
+        fireSpot.style.animationDelay = `${Math.random() * 4}s`;
+        fireSpot.style.animationDuration = `${1.5 + Math.random() * 2.5}s`;
         container.appendChild(fireSpot);
     }
 
-    // Create explosions
-    const explosionCount = 8;
+    const explosionCount = 12;
     for (let i = 0; i < explosionCount; i++) {
         const explosion = document.createElement('div');
         explosion.className = 'explosion';
-
         explosion.style.left = `${Math.random() * 100}%`;
         explosion.style.top = `${Math.random() * 100}%`;
-        explosion.style.animationDelay = `${Math.random() * 2}s`;
-        explosion.style.animationDuration = `${1.5 + Math.random() * 1}s`;
-
+        explosion.style.animationDelay = `${Math.random() * 3}s`;
+        explosion.style.animationDuration = `${1 + Math.random() * 1.5}s`;
         container.appendChild(explosion);
     }
 
-    // Create ember trails
-    const emberCount = 25;
+    const emberCount = 40;
     for (let i = 0; i < emberCount; i++) {
         const ember = document.createElement('div');
         ember.className = 'ember';
-
         ember.style.left = `${Math.random() * 100}%`;
-        ember.style.bottom = `${Math.random() * 20}%`;
-        ember.style.animationDelay = `${Math.random() * 4}s`;
-        ember.style.animationDuration = `${3 + Math.random() * 2}s`;
-
+        ember.style.bottom = `${Math.random() * 25}%`;
+        ember.style.animationDelay = `${Math.random() * 5}s`;
+        ember.style.animationDuration = `${2.5 + Math.random() * 3}s`;
         container.appendChild(ember);
     }
 
-    // Create continuous fire spots that regenerate
     setInterval(() => {
-        if (Math.random() < 0.3) {
+        if (Math.random() < 0.4) {
             const newFireSpot = document.createElement('div');
             newFireSpot.className = 'fire-spot';
-
             newFireSpot.style.left = `${Math.random() * 100}%`;
             newFireSpot.style.top = `${Math.random() * 100}%`;
-            newFireSpot.style.animationDuration = `${2 + Math.random() * 1.5}s`;
-
+            newFireSpot.style.animationDuration = `${1.5 + Math.random() * 2}s`;
             container.appendChild(newFireSpot);
-
-            setTimeout(() => {
-                if (newFireSpot.parentNode) {
-                    newFireSpot.parentNode.removeChild(newFireSpot);
-                }
-            }, 3500);
+            setTimeout(() => newFireSpot.remove(), 4000);
         }
-    }, 2000);
+    }, 1500);
 
-    // Create occasional large explosions
     setInterval(() => {
-        if (Math.random() < 0.2) {
+        if (Math.random() < 0.25) {
             const newExplosion = document.createElement('div');
             newExplosion.className = 'explosion';
-
             newExplosion.style.left = `${Math.random() * 100}%`;
             newExplosion.style.top = `${Math.random() * 100}%`;
-            newExplosion.style.animationDuration = `${1.5 + Math.random() * 1}s`;
-
+            newExplosion.style.animationDuration = `${1.2 + Math.random() * 1.3}s`;
             container.appendChild(newExplosion);
-
-            setTimeout(() => {
-                if (newExplosion.parentNode) {
-                    newExplosion.parentNode.removeChild(newExplosion);
-                }
-            }, 2500);
+            setTimeout(() => newExplosion.remove(), 3000);
         }
-    }, 3000);
+    }, 2500);
 }
 
-// --- Mobile Menu Controls ---
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileCloseBtn = document.getElementById('mobileCloseBtn');
 const mobileNav = document.getElementById('mobileNav');
 mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
 mobileCloseBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
 
-// --- Auth Modal Controls ---
 const authModal = document.getElementById('authModal');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
@@ -182,13 +147,13 @@ function showAuthModal(type) {
     if (type === 'login') {
         loginForm.style.display = 'block';
         signupForm.style.display = 'none';
-        switchAuthLink.textContent = 'Need an account? Enlist now.';
-        authTitle.textContent = 'Operator Login';
+        switchAuthLink.textContent = 'New Recruit? Enroll Here.';
+        authTitle.textContent = 'Operator Access';
     } else {
         loginForm.style.display = 'none';
         signupForm.style.display = 'block';
-        switchAuthLink.textContent = 'Already have an account? Sign In.';
-        authTitle.textContent = 'Enlist Now';
+        switchAuthLink.textContent = 'Existing Operator? Access Here.';
+        authTitle.textContent = 'Enroll Operator';
     }
     authModal.classList.add('active');
 }
@@ -205,7 +170,6 @@ switchAuthLink.addEventListener('click', () => {
     }
 });
 
-// --- Enhanced Local Storage Authentication ---
 function handleSignup(event) {
     event.preventDefault();
     const username = document.getElementById('signupUsername').value;
@@ -213,22 +177,19 @@ function handleSignup(event) {
     const password = signupForm.querySelector('input[type="password"]').value;
 
     if (username && email && password) {
-        // Store user data in localStorage
         const userData = {
-            username: username,
-            email: email,
-            password: password, // In real app, this would be hashed
+            username,
+            email,
+            password,
             dateRegistered: new Date().toISOString(),
             loginCount: 1,
             lastLogin: new Date().toISOString()
         };
-
         localStorage.setItem('cod_user_data', JSON.stringify(userData));
         localStorage.setItem('cod_user_logged_in', 'true');
-
         checkLoginStatus();
         hideAuthModal();
-        showNotification(`Welcome to the squad, ${username}! You've been enlisted successfully.`);
+        showNotification(`Operator ${username} enrolled. Stand by for deployment.`);
     }
 }
 
@@ -238,29 +199,22 @@ function handleLogin(event) {
     const password = loginForm.querySelector('input[type="password"]').value;
 
     if (email && password) {
-        // Check if user exists in localStorage
         const storedUserData = localStorage.getItem('cod_user_data');
-
         if (storedUserData) {
             const userData = JSON.parse(storedUserData);
-
-            // Verify credentials (in real app, this would be server-side)
             if (userData.email === email && userData.password === password) {
-                // Update login stats
                 userData.loginCount++;
                 userData.lastLogin = new Date().toISOString();
-
                 localStorage.setItem('cod_user_data', JSON.stringify(userData));
                 localStorage.setItem('cod_user_logged_in', 'true');
-
                 checkLoginStatus();
                 hideAuthModal();
-                showNotification(`Welcome back, ${userData.username}! Mission readiness: 100%`);
+                showNotification(`Operator ${userData.username} online. Systems nominal.`);
             } else {
-                showNotification('Invalid credentials. Access denied.', 'error');
+                showNotification('Access denied. Verify credentials.', 'error');
             }
         } else {
-            showNotification('User not found. Please register first.', 'error');
+            showNotification('Operator not found. Enrollment required.', 'error');
         }
     }
 }
@@ -268,7 +222,7 @@ function handleLogin(event) {
 function logout() {
     localStorage.setItem('cod_user_logged_in', 'false');
     checkLoginStatus();
-    showNotification('You have been logged out. Stay frosty, soldier.');
+    showNotification('Operator offline. Maintain vigilance.');
 }
 
 function checkLoginStatus() {
@@ -281,35 +235,32 @@ function checkLoginStatus() {
     if (isLoggedIn && userData.username) {
         const loggedInHTML = `
             <span class="user-greeting">Operator: ${userData.username}</span>
-            <button class="auth-btn" onclick="logout()">Sign Out</button>
+            <button class="auth-btn" onclick="logout()">Disconnect</button>
         `;
         authButtons.innerHTML = loggedInHTML;
         mobileAuthButtons.innerHTML = loggedInHTML;
 
         if (ctaButton) {
-            ctaButton.textContent = `Welcome back, ${userData.username}!`;
+            ctaButton.textContent = `Stand by, ${userData.username}`;
             ctaButton.classList.add('disabled');
             ctaButton.removeAttribute('onclick');
-            ctaButton.href = 'javascript:void(0)';
         }
     } else {
         const loggedOutHTML = `
-            <button class="auth-btn login-btn" onclick="showAuthModal('login')">Sign In</button>
-            <button class="auth-btn signup signup-btn" onclick="showAuthModal('signup')">Sign Up</button>
+            <button class="auth-btn login-btn" onclick="showAuthModal('login')">Access</button>
+            <button class="auth-btn signup signup-btn" onclick="showAuthModal('signup')">Enroll</button>
         `;
         authButtons.innerHTML = loggedOutHTML;
         mobileAuthButtons.innerHTML = loggedOutHTML;
 
         if (ctaButton) {
-            ctaButton.textContent = 'Register for Updates';
+            ctaButton.textContent = 'Enroll for Alerts';
             ctaButton.classList.remove('disabled');
             ctaButton.setAttribute('onclick', "showAuthModal('signup')");
-            ctaButton.href = 'javascript:void(0)';
         }
     }
 }
 
-// --- Enhanced Cart Management with Local Storage ---
 let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
 
 function addToCart(productId, price, name) {
@@ -319,14 +270,14 @@ function addToCart(productId, price, name) {
     } else {
         cart.push({
             id: productId,
-            name: name,
-            price: price,
+            name,
+            price,
             quantity: 1,
             dateAdded: new Date().toISOString()
         });
     }
     saveCart();
-    showNotification(`${name} added to loadout!`);
+    showNotification(`${name} secured in armory!`);
 }
 
 function saveCart() {
@@ -353,7 +304,7 @@ function showNotification(message, type = 'success') {
             backgroundColor = 'var(--cod-orange-accent)';
             break;
         default:
-            backgroundColor = 'var(--cod-accent-green)';
+            backgroundColor = 'var(--cod-accent-gold)';
     }
 
     notification.style.cssText = `
