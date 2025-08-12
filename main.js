@@ -467,3 +467,23 @@ function setupEGiftCardHandler() {
         showNotification('Checkout initiated. Processing payment...', 'info');
         // Add your payment processing logic here
       }
+
+
+
+       function handlePayment(event) {
+        event.preventDefault();
+        const userData = JSON.parse(
+          localStorage.getItem("cod_user_data") || "{}"
+        );
+        const email = userData.email || "Operator";
+        localStorage.setItem("cod_cart", JSON.stringify([])); // Clear cart
+
+        alert(
+          `Order placed successfully, ${email}! We will update you via email.`
+        );
+
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 4000);
+      }
+    
