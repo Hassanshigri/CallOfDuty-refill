@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Duty Refill - Under Construction</title>
+    <meta name="description" content="Call of Duty Refill is under construction. Soon to be your elite source for COD Points, Battle Passes, and exclusive bundles. Check back soon!">
+    <meta name="keywords" content="call of duty refill, cod points, call of duty store, warzone, battle pass, under construction">
+    <link rel="canonical" href="https://callofdutyrefill.com/">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="background-effects"></div>
+
+    <!-- Cookies Popup -->
+    <div class="cookies-popup" id="cookiesPopup">
+        <div class="cookies-content">
+            <div class="cookies-text">
+                <i class="fa-solid fa-shield-halved cookies-icon"></i>
+                <div class="cookies-message">
+                    <h3 class="cookies-title">Tactical Data Collection</h3>
+                    <p class="cookies-description">
+                        We use cookies to enhance your operational experience and provide tactical support. Review our <a href="./privacy/">Privacy Policy</a> and <a href="./cookies/">Cookie Policy</a> for details.
+                    </p>
+                </div>
+            </div>
+            <div class="cookies-actions">
+                <button class="cookies-btn accept" onclick="acceptCookies()">Accept All</button>
+                <button class="cookies-btn decline" onclick="declineCookies()">Decline</button>
+                <button class="cookies-btn customize" onclick="customizeCookies()">Customize</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="./" class="logo">
+                <img src="images/logo.png" alt="Call of Duty Refill Logo">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="./" class="active">Home</a></li>
+                    <li><a href="./shop/">Shop</a></li>
+                    <li><a href="./contact/">Contact</a></li>
+                    <li><a href="./blog/">News</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <div class="auth-buttons" id="authButtons">
+                    <button class="auth-btn login-btn" onclick="showAuthModal('login')">Sign In</button>
+                    <button class="auth-btn signup signup-btn" onclick="showAuthModal('signup')">Sign Up</button>
+                </div>
+                <a href="./cart/" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <button class="mobile-close" id="mobileCloseBtn"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="./shop/">Shop</a></li>
+            <li><a href="./contact/">Contact</a></li>
+            <li><a href="./blog/">News</a></li>
+        </ul>
+        <div class="mobile-auth-buttons" id="mobileAuthButtons">
+            <button class="auth-btn login-btn" onclick="showAuthModal('login')">Sign In</button>
+            <button class="auth-btn signup signup-btn" onclick="showAuthModal('signup')">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-close" onclick="hideAuthModal()">&times;</button>
+            <h2 class="auth-modal-title" id="authTitle">Operator Login</h2>
+            <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+                <div class="auth-input-group"><input type="email" class="auth-input" placeholder="Email Address" required></div>
+                <div class="auth-input-group"><input type="password" class="auth-input" placeholder="Password" required></div>
+                <button type="submit" class="auth-submit">Access Account</button>
+            </form>
+            <form class="auth-form" id="signupForm" style="display: none;">
+                <div class="auth-input-group"><input type="text" id="signupUsername" class="auth-input" placeholder="Operator Tag" required></div>
+                <div class="auth-input-group"><input type="email" class="auth-input" placeholder="Email Address" required></div>
+                <div class="auth-input-group"><input type="password" class="auth-input" placeholder="Password" required></div>
+                <button type="submit" class="auth-submit">Enlist Now</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; font-size: 1.1rem;">
+                <a href="javascript:void(0)" id="switchAuth">Need an account? Enlist now.</a>
+            </p>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">We're working on it!</h1>
+                    <p class="hero-subtitle">Call of Duty Refill is under construction. Your elite source for COD Points, Battle Passes, and exclusive bundles is coming soon. Please check back soon.</p>
+                    <a href="javascript:void(0)" class="cta-btn" id="ctaButton" onclick="showAuthModal('signup')">
+                        <i class="fa-solid fa-user-plus"></i> Register for Updates
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero.avif" alt="Call of Duty Operator">
+                </div>
+            </div>
+        </section>
+
+        <section class="section points-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Gear Up <span>Soon</span></h2>
+                    <p class="section-subtitle">Preview the COD Points bundles, Battle Passes, and exclusive merchandise that will be available upon launch.</p>
+                </div>
+                <div class="points-grid">
+                    <div class="point-card">
+                        <img src="images/cod-credits.jpg" alt="COD Points Preview" class="card-image">
+                        <h3 class="card-title">COD Points <span>Preview</span></h3>
+                        <p class="card-bonus">Coming Soon</p>
+                        <button class="card-btn disabled">Available at Launch</button>
+                    </div>
+                    <div class="point-card">
+                        <img src="images/battle-pass.jpg" alt="Battle Pass Preview" class="card-image">
+                        <h3 class="card-title">Battle Pass <span>Preview</span></h3>
+                        <p class="card-bonus">Exclusive Tiers</p>
+                        <button class="card-btn disabled">Available at Launch</button>
+                    </div>
+                    <div class="point-card">
+                        <img src="images/elite-operator.jpg" alt="Operator Bundle Preview" class="card-image">
+                        <h3 class="card-title">Operator Bundle <span>Preview</span></h3>
+                        <p class="card-bonus">Limited Edition</p>
+                        <button class="card-btn disabled">Available at Launch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="images/logo.png" alt="Call of Duty Refill Footer Logo" class="footer-logo">
+            <p class="footer-tagline">Call of Duty Refill: Your upcoming destination for COD Points and digital items. Stay tuned for a fast, secure, and reliable service. Not affiliated with Activision.</p>
+            <ul class="footer-nav">
+                <li><a href="./">Home</a></li>
+                <li><a href="./shop/">Shop</a></li>
+                <li><a href="./contact/">Contact</a></li>
+                <li><a href="./blog/">News</a></li>
+                <li><a href="./terms/">Terms</a></li>
+                <li><a href="./privacy/">Privacy</a></li>
+                <li><a href="./cookies/">Cookies</a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Call of Duty Refill. All Rights Reserved. Call of Duty, Warzone, and related assets are trademarks of Activision Publishing, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>
