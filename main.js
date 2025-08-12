@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createBackgroundAnims();
     checkCookiesConsent();
     startCountdown();
+    setupEGiftCardHandler(); // New function for eGift Card
 });
 
 // Countdown function
@@ -31,36 +32,34 @@ function startCountdown() {
     }, 1000);
 }
 
+// Cookie Consent
 document.addEventListener('DOMContentLoaded', function () {
-  const cookiePopup = document.getElementById('cookie-popup');
-  
-  // Check if user has already made a cookie choice
-  if (localStorage.getItem('cookieConsent')) {
-    cookiePopup.style.display = 'none';
-    return;
-  }
+    const cookiePopup = document.getElementById('cookie-popup');
+    
+    if (localStorage.getItem('cookieConsent')) {
+        cookiePopup.style.display = 'none';
+        return;
+    }
 
-  // Show popup by default
-  cookiePopup.style.display = 'block';
+    cookiePopup.style.display = 'block';
 
-  // Accept cookies
-  window.acceptCookies = function () {
-    localStorage.setItem('cookieConsent', 'accepted');
-    cookiePopup.style.display = 'none';
-  };
+    window.acceptCookies = function () {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookiePopup.style.display = 'none';
+    };
 
-  // Decline cookies
-  window.declineCookies = function () {
-    localStorage.setItem('cookieConsent', 'declined');
-    cookiePopup.style.display = 'none';
-  };
+    window.declineCookies = function () {
+        localStorage.setItem('cookieConsent', 'declined');
+        cookiePopup.style.display = 'none';
+    };
 });
 
+// Background Animations
 function createBackgroundAnims() {
     const container = document.querySelector('.background-effects');
     if (!container) return;
 
-    const particleCount = 80; // Increased for more advanced effect
+    const particleCount = 80;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -131,12 +130,18 @@ function createBackgroundAnims() {
     }, 2500);
 }
 
+// Mobile Menu
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileCloseBtn = document.getElementById('mobileCloseBtn');
 const mobileNav = document.getElementById('mobileNav');
-mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
-mobileCloseBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
+if (mobileMenuBtn && mobileNav) {
+    mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+}
+if (mobileCloseBtn && mobileNav) {
+    mobileCloseBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
+}
 
+// Authentication Modal
 const authModal = document.getElementById('authModal');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
@@ -162,13 +167,15 @@ function hideAuthModal() {
     authModal.classList.remove('active');
 }
 
-switchAuthLink.addEventListener('click', () => {
-    if (loginForm.style.display === 'block') {
-        showAuthModal('signup');
-    } else {
-        showAuthModal('login');
-    }
-});
+if (switchAuthLink) {
+    switchAuthLink.addEventListener('click', () => {
+        if (loginForm.style.display === 'block') {
+            showAuthModal('signup');
+        } else {
+            showAuthModal('login');
+        }
+    });
+}
 
 function handleSignup(event) {
     event.preventDefault();
@@ -237,8 +244,8 @@ function checkLoginStatus() {
             <span class="user-greeting">Operator: ${userData.username}</span>
             <button class="auth-btn" onclick="logout()">Disconnect</button>
         `;
-        authButtons.innerHTML = loggedInHTML;
-        mobileAuthButtons.innerHTML = loggedInHTML;
+        if (authButtons) authButtons.innerHTML = loggedInHTML;
+        if (mobileAuthButtons) mobileAuthButtons.innerHTML = loggedInHTML;
 
         if (ctaButton) {
             ctaButton.textContent = `Stand by, ${userData.username}`;
@@ -250,8 +257,8 @@ function checkLoginStatus() {
             <button class="auth-btn login-btn" onclick="showAuthModal('login')">Access</button>
             <button class="auth-btn signup signup-btn" onclick="showAuthModal('signup')">Enroll</button>
         `;
-        authButtons.innerHTML = loggedOutHTML;
-        mobileAuthButtons.innerHTML = loggedOutHTML;
+        if (authButtons) authButtons.innerHTML = loggedOutHTML;
+        if (mobileAuthButtons) mobileAuthButtons.innerHTML = loggedOutHTML;
 
         if (ctaButton) {
             ctaButton.textContent = 'Enroll for Alerts';
@@ -261,6 +268,7 @@ function checkLoginStatus() {
     }
 }
 
+// Cart Management
 let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
 
 function addToCart(productId, price, name) {
@@ -271,7 +279,7 @@ function addToCart(productId, price, name) {
         cart.push({
             id: productId,
             name,
-            price,
+            price: parseFloat(price), // Ensure price is a number
             quantity: 1,
             dateAdded: new Date().toISOString()
         });
@@ -287,8 +295,10 @@ function saveCart() {
 
 function updateCartCount() {
     const cartCount = document.getElementById('cartCount');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCount.textContent = totalItems;
+    if (cartCount) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+    }
 }
 
 function showNotification(message, type = 'success') {
@@ -298,13 +308,13 @@ function showNotification(message, type = 'success') {
     let backgroundColor;
     switch (type) {
         case 'error':
-            backgroundColor = 'var(--cod-red-accent)';
+            backgroundColor = 'var(--cod-orange)'; // Updated to match CSS variable
             break;
         case 'info':
-            backgroundColor = 'var(--cod-orange-accent)';
+            backgroundColor = 'var(--cod-orange)';
             break;
         default:
-            backgroundColor = 'var(--cod-accent-gold)';
+            backgroundColor = 'var(--cod-green)';
     }
 
     notification.style.cssText = `
@@ -312,11 +322,11 @@ function showNotification(message, type = 'success') {
         bottom: 20px;
         right: 20px;
         background-color: ${backgroundColor};
-        color: var(--cod-dark-bg);
+        color: var(--cod-dark);
         padding: 1rem 2rem;
         font-family: 'Orbitron', sans-serif;
         font-size: 1.1rem;
-        border: 1px solid var(--cod-dark-bg);
+        border: 1px solid var(--cod-dark);
         z-index: 10000;
         transform: translateY(120px);
         opacity: 0;
@@ -337,3 +347,123 @@ function showNotification(message, type = 'success') {
         setTimeout(() => notification.remove(), 500);
     }, 4000);
 }
+
+// eGift Card Handler
+function setupEGiftCardHandler() {
+    const denominationSelect = document.getElementById('denomination');
+    const addToCartButton = document.querySelector('#egift-card .btn-cod');
+    
+    if (denominationSelect && addToCartButton) {
+        addToCartButton.addEventListener('click', () => {
+            const selectedValue = parseFloat(denominationSelect.value);
+            addToCart('egift-card', selectedValue, `eGift Card ($${selectedValue})`);
+        });
+    }
+}
+
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+        updateCartDisplay();
+      });
+
+      function updateCartDisplay() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSummaryContainer = document.getElementById('cart-summary');
+        const cartTotalElement = document.getElementById('cart-total');
+        let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
+        
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<p class="text-muted">Your cart is empty. Visit the shop to add items!</p>';
+          cartSummaryContainer.innerHTML = '<p class="text-muted">No items</p>';
+          cartTotalElement.textContent = '$0.00';
+          updateCartCount(); // Update navbar count
+          return;
+        }
+
+        let total = 0;
+        let summaryHtml = '';
+        cartItemsContainer.innerHTML = cart.map(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          summaryHtml += `
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted">${item.name} x ${item.quantity}</span>
+              <span class="text-muted">$${itemTotal.toFixed(2)}</span>
+            </div>
+          `;
+          return `
+            <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-3">
+              <div>
+                <h5 class="text-white">${item.name}</h5>
+                <p class="text-muted mb-0">Price: $${item.price.toFixed(2)}</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <button class="btn btn-outline-cod btn-sm me-2" onclick="decreaseQuantity('${item.id}')">-</button>
+                <span class="text-white mx-2">${item.quantity}</span>
+                <button class="btn btn-outline-cod btn-sm me-2" onclick="increaseQuantity('${item.id}')">+</button>
+                <button class="btn btn-outline-cod btn-sm" onclick="removeFromCart('${item.id}')">Remove</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        cartSummaryContainer.innerHTML = summaryHtml;
+        cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        updateCartCount(); // Update navbar count
+      }
+
+      function increaseQuantity(productId) {
+        let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+          item.quantity += 1; // Add one more of the same item
+          localStorage.setItem('cod_cart', JSON.stringify(cart));
+          updateCartDisplay();
+          showNotification(`${item.name} quantity increased.`);
+        }
+      }
+
+      function decreaseQuantity(productId) {
+        let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+          if (item.quantity > 1) {
+            item.quantity -= 1; // Decrease quantity by 1
+            localStorage.setItem('cod_cart', JSON.stringify(cart));
+            updateCartDisplay();
+            showNotification(`${item.name} quantity decreased.`);
+          } else {
+            removeFromCart(productId); // Remove item if quantity is 1
+          }
+        }
+      }
+
+      function removeFromCart(productId) {
+        let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
+        const item = cart.find(item => item.id === productId);
+        cart = cart.filter(item => item.id !== productId);
+        localStorage.setItem('cod_cart', JSON.stringify(cart));
+        updateCartDisplay();
+        showNotification(`${item ? item.name : 'Item'} removed from cart.`);
+      }
+
+      function updateCartCount() {
+        const cartCount = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cod_cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (cartCount) {
+          cartCount.textContent = totalItems;
+        }
+      }
+
+      function checkout() {
+        const isLoggedIn = localStorage.getItem('cod_user_logged_in') === 'true';
+        if (!isLoggedIn) {
+          showAuthModal('login');
+          showNotification('Please log in to proceed to checkout.', 'error');
+          return;
+        }
+        showNotification('Checkout initiated. Processing payment...', 'info');
+        // Add your payment processing logic here
+      }
