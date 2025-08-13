@@ -23,10 +23,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link href="/style.css" rel="stylesheet" />
+    <style>
+      /* Blog image sizing */
+      .blog-post-image {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      /* Smaller image on mobile */
+      @media (max-width: 576px) {
+        .blog-post-image {
+          max-height: 200px;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-transparent shadow-sm backdrop-blur sticky-top"
     >
@@ -86,69 +100,96 @@
         </div>
       </div>
     </nav>
+
     <!-- Main Content -->
     <main class="container my-5">
-  <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
-      <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Anti-Cheat Updates: What You Need to Know</li>
-    </ol>
-  </nav>
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
+          <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Anti-Cheat Updates: What You Need to Know</li>
+        </ol>
+      </nav>
 
-  <article class="bg-dark-card p-4 border-cod">
-    <h1 class="text-white fw-bold mb-3">Anti-Cheat Updates: What You Need to Know</h1>
-    <p class="text-muted mb-4">Posted on July 30, 2025 by COD Refill Team</p>
-    <img src="/images/blog/cheatcode.webp" class="img-fluid mb-4" alt="Anti-Cheat Updates">
+      <!-- Blog Post -->
+      <div class="text-center mb-5">
+        <h1 class="display-4 text-white fw-bold mb-3">
+          <i class="fas fa-shield-alt text-cod me-3"></i>Anti-Cheat Updates: What You Need to Know
+        </h1>
+        <p class="text-muted lead">Posted on July 30, 2025 by COD Refill Team</p>
+      </div>
 
-    <p class="text-muted">
-      Cheating in online games ruins the fun for everyone, and Call of Duty is no exception. 
-      That’s why the developers have rolled out a major update to the <strong>RICOCHET Anti-Cheat</strong> 
-      system for Season 05. These new changes are designed to create a more balanced, fair, 
-      and competitive environment — whether you’re dropping into Warzone or grinding in multiplayer.
-    </p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card bg-dark-card border-cod">
+            <div class="card-body p-4">
+              <div class="blog-content text-white">
+                <img src="/images/blog/cheatcode.webp" class="blog-post-image mb-4" alt="Anti-Cheat Updates">
 
-    <h2 class="text-white mt-4">Key Changes</h2>
-    <ul class="text-muted">
-      <li><strong>Enhanced Detection:</strong> Improved scanning algorithms to detect aimbots, wallhacks, and input manipulation faster and more accurately.</li>
-      <li><strong>Real-Time Monitoring:</strong> Player reports now trigger faster investigations with immediate in-match monitoring.</li>
-      <li><strong>Ban Wave Improvements:</strong> Increased frequency of ban waves to quickly remove cheaters before they disrupt more matches.</li>
-      <li><strong>Replay Review System:</strong> New replay tools for developers and moderators to review suspicious plays frame-by-frame.</li>
-      <li><strong>Stronger Hardware Bans:</strong> Bans tied to hardware IDs to stop repeat offenders from simply creating new accounts.</li>
-    </ul>
+                <p class="text-muted lead">
+                  Cheating in online games ruins the fun for everyone, and Call of Duty is no exception. 
+                  That’s why the developers have rolled out a major update to the <strong>RICOCHET Anti-Cheat</strong> 
+                  system for Season 05. These new changes are designed to create a more balanced, fair, 
+                  and competitive environment — whether you’re dropping into Warzone or grinding in multiplayer.
+                </p>
 
-    <h2 class="text-white mt-4">What This Means for Players</h2>
-    <p class="text-muted">
-      With these updates, legitimate players should notice cleaner lobbies and fewer unfair deaths. 
-      It’s still important to use the in-game <em>Report Player</em> option if you see suspicious behavior — 
-      every report helps the system improve. Remember, the goal is to make every gunfight about skill, not cheats.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Key Changes</h3>
+                  <ul class="text-muted ms-4">
+                    <li><strong>Enhanced Detection:</strong> Improved scanning algorithms to detect aimbots, wallhacks, and input manipulation faster and more accurately.</li>
+                    <li><strong>Real-Time Monitoring:</strong> Player reports now trigger faster investigations with immediate in-match monitoring.</li>
+                    <li><strong>Ban Wave Improvements:</strong> Increased frequency of ban waves to quickly remove cheaters before they disrupt more matches.</li>
+                    <li><strong>Replay Review System:</strong> New replay tools for developers and moderators to review suspicious plays frame-by-frame.</li>
+                    <li><strong>Stronger Hardware Bans:</strong> Bans tied to hardware IDs to stop repeat offenders from simply creating new accounts.</li>
+                  </ul>
+                </section>
 
-    <h2 class="text-white mt-4">Tips to Stay Safe</h2>
-    <ul class="text-muted">
-      <li>Never download third-party software claiming to improve performance — it could get you banned.</li>
-      <li>Use official game clients and avoid “modded” versions of the game.</li>
-      <li>Keep your account secure with two-factor authentication.</li>
-      <li>Regularly check the <a href="https://www.callofduty.com/updates" class="text-cod" target="_blank">official patch notes</a> for security updates.</li>
-    </ul>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">What This Means for Players</h3>
+                  <p class="text-muted">
+                    With these updates, legitimate players should notice cleaner lobbies and fewer unfair deaths. 
+                    It’s still important to use the in-game <em>Report Player</em> option if you see suspicious behavior — 
+                    every report helps the system improve. Remember, the goal is to make every gunfight about skill, not cheats.
+                  </p>
+                </section>
 
-    <h2 class="text-white mt-4">Final Thoughts</h2>
-    <p class="text-muted">
-      Fair play is at the heart of the Call of Duty community. With the latest RICOCHET 
-      updates, the fight against cheaters is stronger than ever. Whether you’re a casual 
-      player or a competitive grinder, these changes are here to make every match more 
-      enjoyable and competitive.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Tips to Stay Safe</h3>
+                  <ul class="text-muted ms-4">
+                    <li>Never download third-party software claiming to improve performance — it could get you banned.</li>
+                    <li>Use official game clients and avoid “modded” versions of the game.</li>
+                    <li>Keep your account secure with two-factor authentication.</li>
+                    <li>Regularly check the <a href="https://www.callofduty.com/updates" class="text-cod" target="_blank">official patch notes</a> for security updates.</li>
+                  </ul>
+                </section>
 
-    <p class="text-muted">
-      Stay legit, stay sharp, and gear up for your next victory with our premium COD gear.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Final Thoughts</h3>
+                  <p class="text-muted lead">
+                    Fair play is at the heart of the Call of Duty community. With the latest RICOCHET 
+                    updates, the fight against cheaters is stronger than ever. Whether you’re a casual 
+                    player or a competitive grinder, these changes are here to make every match more 
+                    enjoyable and competitive.
+                  </p>
+                  <p class="text-muted">
+                    Stay legit, stay sharp, and gear up for your next victory with our premium COD gear.
+                  </p>
+                </section>
 
-    <a href="../../shop/" class="btn btn-cod mt-3">Shop Securely</a>
-  </article>
-</main>
+                <div class="text-center mt-5">
+                  <a href="../../shop/" class="btn btn-cod me-3">
+                    <i class="fas fa-shopping-cart me-2"></i>Shop Securely
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-
+    <!-- Footer -->
     <footer class="bg-dark-footer text-white py-5 mt-5">
       <div class="container">
         <div class="row">
@@ -158,10 +199,10 @@
               We are not an affiliate agency. All products are sold independently through our platform.
             </p>
             <div class="d-flex gap-3">
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
             </div>
           </div>
           <div class="col-md-3">

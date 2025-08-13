@@ -23,6 +23,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link href="/style.css" rel="stylesheet" />
+    <style>
+      /* Blog image sizing */
+      .blog-post-image {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      /* Smaller image on mobile */
+      @media (max-width: 576px) {
+        .blog-post-image {
+          max-height: 200px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -32,7 +47,7 @@
     <div class="muzzle-flash"></div>
     <div class="muzzle-flash"></div>
 
-   <nav
+    <nav
       class="navbar navbar-expand-lg navbar-dark bg-transparent shadow-sm backdrop-blur sticky-top"
     >
       <div class="container">
@@ -94,68 +109,89 @@
 
     <!-- Main Content -->
     <main class="container my-5">
-  <!-- Breadcrumb -->
-  <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
-      <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
-      <li class="breadcrumb-item active" aria-current="page">How to Maximize Your COD Points in Warzone</li>
-    </ol>
-  </nav>
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
+          <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">How to Maximize Your COD Points in Warzone</li>
+        </ol>
+      </nav>
 
-  <!-- Blog Post -->
-  <article class="bg-dark-card p-4 border-cod">
-    <h1 class="text-white fw-bold mb-3">How to Maximize Your COD Points in Warzone</h1>
-    <p class="text-muted mb-4">Posted on August 8, 2025 by COD Refill Team</p>
-    <img src="/images/blog/CODCW.avif" class="img-fluid mb-4" alt="Warzone COD Points">
+      <!-- Blog Post -->
+      <div class="text-center mb-5">
+        <h1 class="display-4 text-white fw-bold mb-3">
+          <i class="fas fa-coins text-cod me-3"></i>How to Maximize Your COD Points in Warzone
+        </h1>
+        <p class="text-muted lead">Posted on August 8, 2025 by COD Refill Team</p>
+      </div>
 
-    <p class="text-muted">
-      In <strong>Call of Duty: Warzone</strong>, COD Points are your gateway to premium content—operator skins, weapon blueprints, finishing moves, and exclusive bundles.  
-      But with so many tempting items in the store, it’s easy to burn through your points quickly.  
-      Here’s how to spend smart, get more for your money, and keep your loadouts fresh without going broke.
-    </p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card bg-dark-card border-cod">
+            <div class="card-body p-4">
+              <div class="blog-content text-white">
+                <img src="/images/blog/CODCW.avif" class="blog-post-image mb-4" alt="Warzone COD Points">
 
-    <h2 class="text-white mt-4">Best Strategies</h2>
-    <ul class="text-muted">
-      <li>
-        <strong>Invest in the Battle Pass</strong> – The Battle Pass is one of the best value purchases in Warzone. For <strong>1,100 COD Points</strong>, you can unlock up to 100 tiers of rewards and even earn <strong>1,300 COD Points back</strong> by completing it—effectively making your next pass free.
-      </li>
-      <li>
-        <strong>Wait for Bundle Sales</strong> – Keep an eye on seasonal or holiday discounts. Operator bundles can be 10–20% cheaper during special events, and often include bonus weapon blueprints, charms, and calling cards.
-      </li>
-      <li>
-        <strong>Prioritize High-Impact Blueprints</strong> – Some blueprints come with meta-ready attachments that can save you weeks of grinding. If a blueprint covers your main weapon in Ranked or Warzone, it’s worth the investment.
-      </li>
-    </ul>
+                <p class="text-muted lead">
+                  In <strong>Call of Duty: Warzone</strong>, COD Points are your gateway to premium content—operator skins, weapon blueprints, finishing moves, and exclusive bundles.  
+                  But with so many tempting items in the store, it’s easy to burn through your points quickly.  
+                  Here’s how to spend smart, get more for your money, and keep your loadouts fresh without going broke.
+                </p>
 
-    <h2 class="text-white mt-4">Mistakes to Avoid</h2>
-    <ul class="text-muted">
-      <li>Buying cosmetic-only bundles if you’re low on COD Points—focus on functional items first.</li>
-      <li>Purchasing every new skin on release—wait to see if it fits your playstyle before spending.</li>
-      <li>Ignoring free unlock events—sometimes the best cosmetics are available for zero COD Points.</li>
-    </ul>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Best Strategies</h3>
+                  <ul class="text-muted ms-4">
+                    <li>
+                      <strong>Invest in the Battle Pass</strong> – The Battle Pass is one of the best value purchases in Warzone. For <strong>1,100 COD Points</strong>, you can unlock up to 100 tiers of rewards and even earn <strong>1,300 COD Points back</strong> by completing it—effectively making your next pass free.
+                    </li>
+                    <li>
+                      <strong>Wait for Bundle Sales</strong> – Keep an eye on seasonal or holiday discounts. Operator bundles can be 10–20% cheaper during special events, and often include bonus weapon blueprints, charms, and calling cards.
+                    </li>
+                    <li>
+                      <strong>Prioritize High-Impact Blueprints</strong> – Some blueprints come with meta-ready attachments that can save you weeks of grinding. If a blueprint covers your main weapon in Ranked or Warzone, it’s worth the investment.
+                    </li>
+                  </ul>
+                </section>
 
-    <h2 class="text-white mt-4">Pro Tips for Saving COD Points</h2>
-    <ul class="text-muted">
-      <li>Stack your purchases during <strong>Double XP and Double COD Point weekends</strong> to get extra value.</li>
-      <li>Complete all daily and weekly challenges—many reward COD Points directly.</li>
-      <li>Check the store refresh schedule so you don’t miss limited-time offers.</li>
-      <li>If you play multiple COD titles, remember your COD Points carry over between them.</li>
-    </ul>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Mistakes to Avoid</h3>
+                  <ul class="text-muted ms-4">
+                    <li>Buying cosmetic-only bundles if you’re low on COD Points—focus on functional items first.</li>
+                    <li>Purchasing every new skin on release—wait to see if it fits your playstyle before spending.</li>
+                    <li>Ignoring free unlock events—sometimes the best cosmetics are available for zero COD Points.</li>
+                  </ul>
+                </section>
 
-    <p class="text-muted mt-4">
-      Smart spending can keep your loadouts competitive while leaving you enough COD Points for the next big seasonal drop.  
-      Refill your COD Points through our secure shop and stay ready for whatever Warzone throws at you.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Pro Tips for Saving COD Points</h3>
+                  <ul class="text-muted ms-4">
+                    <li>Stack your purchases during <strong>Double XP and Double COD Point weekends</strong> to get extra value.</li>
+                    <li>Complete all daily and weekly challenges—many reward COD Points directly.</li>
+                    <li>Check the store refresh schedule so you don’t miss limited-time offers.</li>
+                    <li>If you play multiple COD titles, remember your COD Points carry over between them.</li>
+                  </ul>
+                </section>
 
-    <a href="../../shop/" class="btn btn-cod mt-3">Buy COD Points</a>
-  </article>
-</main>
+                <p class="text-muted mt-4 lead">
+                  Smart spending can keep your loadouts competitive while leaving you enough COD Points for the next big seasonal drop.  
+                  Refill your COD Points through our secure shop and stay ready for whatever Warzone throws at you.
+                </p>
 
+                <div class="text-center mt-5">
+                  <a href="../../shop/" class="btn btn-cod me-3">
+                    <i class="fas fa-shopping-cart me-2"></i>Buy COD Points
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-dark-footer text-white py-5 mt-5">
-      <!-- Same footer content as above -->
       <div class="container">
         <div class="row">
           <div class="col-md-3">
@@ -164,10 +200,10 @@
               We are not an affiliate agency. All products are sold independently through our platform.
             </p>
             <div class="d-flex gap-3">
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
             </div>
           </div>
           <div class="col-md-3">

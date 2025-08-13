@@ -23,11 +23,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link href="/style.css" rel="stylesheet" />
+    <style>
+      /* Blog image sizing */
+      .blog-post-image {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      /* Smaller image on mobile */
+      @media (max-width: 576px) {
+        .blog-post-image {
+          max-height: 200px;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Navbar same -->
-     <nav
+    <!-- Navbar -->
+    <nav
       class="navbar navbar-expand-lg navbar-dark bg-transparent shadow-sm backdrop-blur sticky-top"
     >
       <div class="container">
@@ -87,70 +102,97 @@
       </div>
     </nav>
 
-   <!-- Main Content -->
-<main class="container my-5">
-  <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
-      <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Top Weapon Blueprints Worth Buying</li>
-    </ol>
-  </nav>
+    <!-- Main Content -->
+    <main class="container my-5">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="text-cod">Home</a></li>
+          <li class="breadcrumb-item"><a href="../../blog/" class="text-cod">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Top Weapon Blueprints Worth Buying</li>
+        </ol>
+      </nav>
 
-  <article class="bg-dark-card p-4 border-cod">
-    <h1 class="text-white fw-bold mb-3">Top Weapon Blueprints Worth Buying in Season 05</h1>
-    <p class="text-muted mb-4">Posted on August 2, 2025 by COD Refill Team</p>
-    <img src="/images/blog/Blueprints.avif" class="img-fluid mb-4" alt="Weapon Blueprints">
+      <!-- Blog Post -->
+      <div class="text-center mb-5">
+        <h1 class="display-4 text-white fw-bold mb-3">
+          <i class="fas fa-gun text-cod me-3"></i>Top Weapon Blueprints Worth Buying in Season 05
+        </h1>
+        <p class="text-muted lead">Posted on August 2, 2025 by COD Refill Team</p>
+      </div>
 
-    <p class="text-muted">
-      Season 05 of <strong>Call of Duty: Black Ops 6</strong> brings some of the best weapon blueprints we’ve seen yet.  
-      These ready-to-use builds don’t just look incredible—they’re tuned for peak performance in the current meta.  
-      Whether you’re holding down lanes in <em>Ranked</em>, dropping into <em>Warzone</em>, or speedrunning <em>Zombies</em>,  
-      these blueprints will keep you ahead of the competition.
-    </p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card bg-dark-card border-cod">
+            <div class="card-body p-4">
+              <div class="blog-content text-white">
+                <img src="/images/blog/Blueprints.avif" class="blog-post-image mb-4" alt="Weapon Blueprints">
 
-    <h2 class="text-white mt-4">Recommended Blueprints</h2>
-    <ul class="text-muted">
-      <li>
-        <strong>Elite AR Blueprint</strong> – Built for laser-like recoil control and mid-range dominance. Perfect for aggressive pushes or holding angles in Multiplayer. Comes with a sleek matte camo and custom iron sights for faster target acquisition.
-      </li>
-      <li>
-        <strong>Neon SMG</strong> – High mobility, blistering fire rate, and neon tracer rounds make this a close-range monster. Great for flanking and clearing rooms in tight maps like <em>Hijacked</em> and <em>Nuketown 24/7</em>.
-      </li>
-      <li>
-        <strong>Sniper Master</strong> – Tuned for maximum bullet velocity and minimal sway, giving you one-shot potential from insane distances. A must-have for long sightline maps or precision Warzone plays.
-      </li>
-    </ul>
+                <p class="text-muted lead">
+                  Season 05 of <strong>Call of Duty: Black Ops 6</strong> brings some of the best weapon blueprints we’ve seen yet.  
+                  These ready-to-use builds don’t just look incredible—they’re tuned for peak performance in the current meta.  
+                  Whether you’re holding down lanes in <em>Ranked</em>, dropping into <em>Warzone</em>, or speedrunning <em>Zombies</em>,  
+                  these blueprints will keep you ahead of the competition.
+                </p>
 
-    <h2 class="text-white mt-4">Why Blueprints Are Worth It</h2>
-    <p class="text-muted">
-      Blueprints save you the grind by giving you pre-unlocked attachments, unique weapon skins, and often bonus effects like tracer rounds or dismemberment. They’re perfect for players who want a competitive loadout right out of the gate.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Recommended Blueprints</h3>
+                  <ul class="text-muted ms-4">
+                    <li>
+                      <strong>Elite AR Blueprint</strong> – Built for laser-like recoil control and mid-range dominance. Perfect for aggressive pushes or holding angles in Multiplayer. Comes with a sleek matte camo and custom iron sights for faster target acquisition.
+                    </li>
+                    <li>
+                      <strong>Neon SMG</strong> – High mobility, blistering fire rate, and neon tracer rounds make this a close-range monster. Great for flanking and clearing rooms in tight maps like <em>Hijacked</em> and <em>Nuketown 24/7</em>.
+                    </li>
+                    <li>
+                      <strong>Sniper Master</strong> – Tuned for maximum bullet velocity and minimal sway, giving you one-shot potential from insane distances. A must-have for long sightline maps or precision Warzone plays.
+                    </li>
+                  </ul>
+                </section>
 
-    <h2 class="text-white mt-4">How to Get These Blueprints</h2>
-    <ol class="text-muted">
-      <li>Purchase COD Points from the in-game Store or our <a href="../../shop/" class="text-cod">discounted shop</a>.</li>
-      <li>Head to the <strong>Store</strong> tab in Black Ops 6 and check the Featured & Bundles sections.</li>
-      <li>Select your blueprint bundle and confirm the purchase.</li>
-      <li>Equip your blueprint from the Create-a-Class menu.</li>
-    </ol>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Why Blueprints Are Worth It</h3>
+                  <p class="text-muted">
+                    Blueprints save you the grind by giving you pre-unlocked attachments, unique weapon skins, and often bonus effects like tracer rounds or dismemberment. They’re perfect for players who want a competitive loadout right out of the gate.
+                  </p>
+                </section>
 
-    <h2 class="text-white mt-4">Pro Tips</h2>
-    <ul class="text-muted">
-      <li>Look for bundles that include both weapon blueprints and operator skins for better value.</li>
-      <li>Check seasonal events—some blueprints are free through challenges.</li>
-      <li>Experiment with blueprint attachments; you can still modify most loadouts to fit your playstyle.</li>
-    </ul>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">How to Get These Blueprints</h3>
+                  <ol class="text-muted ms-4">
+                    <li>Purchase COD Points from the in-game Store or our <a href="../../shop/" class="text-cod">discounted shop</a>.</li>
+                    <li>Head to the <strong>Store</strong> tab in Black Ops 6 and check the Featured & Bundles sections.</li>
+                    <li>Select your blueprint bundle and confirm the purchase.</li>
+                    <li>Equip your blueprint from the Create-a-Class menu.</li>
+                  </ol>
+                </section>
 
-    <p class="text-muted mt-4">
-      Season 05 is loaded with high-performance gear. Don’t wait until these rotate out of the Store—lock in your favorite blueprints now and dominate the battlefield.
-    </p>
+                <section class="mb-4">
+                  <h3 class="text-cod mb-3">Pro Tips</h3>
+                  <ul class="text-muted ms-4">
+                    <li>Look for bundles that include both weapon blueprints and operator skins for better value.</li>
+                    <li>Check seasonal events—some blueprints are free through challenges.</li>
+                    <li>Experiment with blueprint attachments; you can still modify most loadouts to fit your playstyle.</li>
+                  </ul>
+                </section>
 
-    <a href="../../shop/" class="btn btn-cod mt-3">Buy Now</a>
-  </article>
-</main>
+                <p class="text-muted mt-4 lead">
+                  Season 05 is loaded with high-performance gear. Don’t wait until these rotate out of the Store—lock in your favorite blueprints now and dominate the battlefield.
+                </p>
 
+                <div class="text-center mt-5">
+                  <a href="../../shop/" class="btn btn-cod me-3">
+                    <i class="fas fa-shopping-cart me-2"></i>Buy Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <!-- Footer -->
     <footer class="bg-dark-footer text-white py-5 mt-5">
       <div class="container">
         <div class="row">
@@ -160,10 +202,10 @@
               We are not an affiliate agency. All products are sold independently through our platform.
             </p>
             <div class="d-flex gap-3">
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
-              <ahref="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-facebook"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-twitter"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-instagram"></i></a>
+              <a href="javascript:void(0)" class="text-muted"><i class="bi bi-discord"></i></a>
             </div>
           </div>
           <div class="col-md-3">
