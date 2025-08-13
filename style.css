@@ -5,6 +5,11 @@
   --cod-text: #e6e6e6;
 }
 
+#contactForm ::placeholder {
+  color: white;
+  opacity: 1;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
