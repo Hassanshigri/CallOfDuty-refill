@@ -9,6 +9,15 @@
   color: white;
   opacity: 1;
 }
+.navbar-toggler {
+  border: none; /* remove default border */
+}
+
+@media (max-width: 768px) {
+    .badge.bg-cod.translate-middle {
+        transform: translate(-851%, -10%) !important;
+    }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
